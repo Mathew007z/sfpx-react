@@ -1,0 +1,18 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/spfx-build/config.2.0.schema.json",
+  "version": "2.0",
+  "bundles": {
+    "spfx-filter-react-web-part": {
+      "components": [
+        {
+          "entrypoint": "./lib/webparts/spfxFilterReact/SpfxFilterReactWebPart.js",
+          "manifest": "./src/webparts/spfxFilterReact/SpfxFilterReactWebPart.manifest.json"
+        }
+      ]
+    }
+  },
+  "externals": {},
+  "localizedResources": {
+    "SpfxFilterReactWebPartStrings": "lib/webparts/spfxFilterReact/loc/{locale}.js"
+  }
+}

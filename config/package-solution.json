@@ -1,0 +1,40 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/spfx-build/package-solution.schema.json",
+  "solution": {
+    "name": "spfx-filter-react-client-side-solution",
+    "id": "6704146a-5bb6-40e0-b017-558774421fb3",
+    "version": "1.0.0.0",
+    "includeClientSideAssets": true,
+    "skipFeatureDeployment": true,
+    "isDomainIsolated": false,
+    "developer": {
+      "name": "",
+      "websiteUrl": "",
+      "privacyUrl": "",
+      "termsOfUseUrl": "",
+      "mpnId": "Undefined-1.16.1"
+    },
+    "metadata": {
+      "shortDescription": {
+        "default": "spfx-filter-react description"
+      },
+      "longDescription": {
+        "default": "spfx-filter-react description"
+      },
+      "screenshotPaths": [],
+      "videoUrl": "",
+      "categories": []
+    },
+    "features": [
+      {
+        "title": "spfx-filter-react Feature",
+        "description": "The feature that activates elements of the spfx-filter-react solution.",
+        "id": "59bf6aaf-ffa6-4d69-8ebb-c83621abb1c6",
+        "version": "1.0.0.0"
+      }
+    ]
+  },
+  "paths": {
+    "zippedPackage": "solution/spfx-filter-react.sppkg"
+  }
+}
