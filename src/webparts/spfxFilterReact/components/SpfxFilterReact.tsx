@@ -1,16 +1,16 @@
 import * as React from 'react';
 import { ISpfxFilterReactProps } from './ISpfxFilterReactProps';
-import SPODataProvider from '../../../services/SPODataProvider'; // Asegúrate de que la ruta sea correcta
+import SPODataProvider from '../../../services/SPODataProvider';
 import { TextField } from 'office-ui-fabric-react';
-export default class SpfxFilterReact extends React.Component<ISpfxFilterReactProps, { searchText: string; selectedAliados: string; documents: any[] }> {
-  private dataProvider: SPODataProvider; // Instancia de tu proveedor de datos
+
+export default class SpfxFilterReact extends React.Component<ISpfxFilterReactProps, { selectedAliado: string; documents: any[] }> {
+  private dataProvider: SPODataProvider;
 
   constructor(props: ISpfxFilterReactProps) {
     super(props);
     this.dataProvider = new SPODataProvider("https://cafcon.sharepoint.com/sites/PeopleSearch");
     this.state = {
-      searchText: "",
-      selectedAliados: "",
+      selectedAliado: "",
       documents: []
     };
   }
@@ -24,14 +24,27 @@ export default class SpfxFilterReact extends React.Component<ISpfxFilterReactPro
     }
   }
 
+  handleSearchChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+    this.setState({ selectedAliado: event.target.value });
+  };
+
   render() {
-    const { documents } = this.state;
+    const { documents, selectedAliado } = this.state;
+
+    // Filtrar documentos basados en el aliado seleccionado
+    const filteredDocuments = documents.filter(doc =>
+      doc.Aliados.toLowerCase().includes(selectedAliado.toLowerCase())
+    );
 
     return (
       <div>
-        <TextField placeholder='Buscar Documento Por Aliado'/>
-        {documents.map((doc) => (
-          <div key={doc.Id}>
+        <TextField
+          placeholder='Buscar Documento por Aliado'
+          onChange={this.handleSearchChange}
+          value={selectedAliado}
+        />
+        {filteredDocuments.map((doc) => (
+          <div key={doc.Id} style={{padding:'40px', border:'1px solid #000'}}>
             <h3>{doc.Title}</h3>
           </div>
         ))}
